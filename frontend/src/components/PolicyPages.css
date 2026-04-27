@@ -1,0 +1,67 @@
+.policy-page {
+  max-width: 800px; /* Constrain width for readability */
+  margin: 3rem auto; /* Top/bottom margin and center horizontally */
+  padding: 2rem; /* Inner padding */
+  background-color: var(--background-white); /* White background */
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  line-height: 1.8; /* Improve readability */
+  color: var(--light-text);
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.policy-page h1 {
+  font-size: 2.2rem;
+  color: var(--dark-text);
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-green);
+  padding-bottom: 0.5rem;
+}
+
+.policy-page .last-updated {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--light-text);
+  margin-bottom: 2rem;
+}
+
+.policy-page h2 {
+  font-size: 1.5rem;
+  color: var(--dark-text);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.policy-page p {
+  margin-bottom: 1rem;
+}
+
+.policy-page ul {
+  list-style: disc; /* Use standard bullet points */
+  padding-left: 2rem; /* Indent list */
+  margin-bottom: 1rem;
+}
+
+.policy-page li {
+  margin-bottom: 0.5rem;
+}
+
+.policy-page strong {
+  color: var(--dark-text); /* Make important text stand out slightly */
+}
+
+.policy-page .disclaimer-note {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: #dc2626; /* Red color for warning */
+  background-color: #fef2f2; /* Light red background */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.policy-page .disclaimer-note strong {
+   color: #b91c1c; /* Darker red for emphasis */
+}

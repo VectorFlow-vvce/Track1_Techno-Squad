@@ -1,0 +1,169 @@
+/* General Page Layout */
+.encyclopedia-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem 1rem;
+  /* Removed font-family: 'Inter' from here */
+}
+
+/* Header Section */
+.encyclopedia-header {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+.encyclopedia-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 0.5rem;
+}
+.encyclopedia-header .section-subtitle {
+  font-size: 1.1rem;
+  color: var(--light-text);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Search and Filter Bar */
+.search-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .search-filter-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.search-input-wrapper,
+.filter-dropdown-wrapper {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--background-white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.search-icon, .filter-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--light-text);
+  font-size: 1rem;
+}
+.search-input-wrapper input,
+.filter-dropdown-wrapper select {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--dark-text);
+  background-color: transparent;
+  outline: none;
+  /* Ensure it inherits the body font */
+  font-family: inherit; 
+}
+.filter-dropdown-wrapper {
+  flex-grow: 0;
+  min-width: 200px;
+}
+.filter-dropdown-wrapper select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5em;
+  cursor: pointer;
+}
+
+.results-count {
+  text-align: left;
+  color: var(--light-text);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Disease Grid */
+.disease-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) { .disease-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .disease-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Disease Card */
+.disease-card {
+  background-color: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+.disease-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.card-header h2 {
+  font-size: 1.4rem;
+  color: var(--dark-text);
+  margin: 0;
+  line-height: 1.2;
+}
+.severity-tag {
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.severity-high { background-color: #ef4444; }
+.severity-medium { background-color: #f59e0b; }
+.severity-low { background-color: #10b981; }
+.scientific-name {
+  font-style: italic;
+  color: var(--light-text);
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.category-name {
+  font-weight: 500;
+  color: var(--dark-text);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+.details-section { margin-bottom: 1.5rem; }
+.details-section h3 { font-size: 1.1rem; color: var(--dark-text); margin-top: 0; margin-bottom: 0.8rem; }
+.details-section ul { list-style: none; padding: 0; margin: 0; }
+.details-section li { display: flex; align-items: flex-start; margin-bottom: 0.6rem; color: var(--light-text); font-size: 0.9rem; line-height: 1.4; }
+.detail-icon { margin-right: 0.8rem; font-size: 0.9rem; flex-shrink: 0; margin-top: 0.2rem; }
+.symptom-icon { color: #ef4444; }
+.prevention-icon { color: #10b981; }
+.treatment-icon { color: #3b82f6; }
+
+/* Loading and Error States */
+.loading-state, .error-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; }
+.loading-icon { font-size: 3rem; color: var(--primary-green); animation: spin 2s linear infinite; margin-bottom: 1rem; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.error-box { background-color: #fef2f2; border: 1px solid #ef4444; border-radius: 8px; padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 500px; margin-top: 3rem; }
+.error-box p { color: #ef4444; font-size: 1.1rem; margin: 0; }
+.no-results { color: var(--light-text); font-size: 1.1rem; text-align: center; margin-top: 3rem; grid-column: 1 / -1; }

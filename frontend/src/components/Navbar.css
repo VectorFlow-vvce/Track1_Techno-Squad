@@ -1,0 +1,220 @@
+/* ======================== */
+/* === Base Navbar Styles === */
+/* ======================== */
+
+.navbar {
+  background: var(--background-white); /* Use variable if defined in index.css */
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem; /* Base font size for nav */
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Space between logo, links, button */
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  max-width: 1200px; /* Max content width */
+  padding: 0 24px; /* Horizontal padding */
+}
+
+.navbar-logo {
+  color: var(--dark-text); /* Use variable */
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex; /* Helps align icon if you add one */
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  height: 80px; /* Match navbar height */
+}
+
+.nav-links {
+  color: var(--light-text); /* Use variable */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1.5rem; /* Space between links */
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  border-bottom: 3px solid transparent; /* Prepare for active state */
+}
+
+.nav-links:hover {
+  color: var(--primary-green); /* Use variable */
+}
+
+/* Active link style */
+.nav-links.active {
+  color: var(--primary-green);
+  border-bottom: 3px solid var(--primary-green);
+}
+
+/* Hamburger menu icon (hidden by default) */
+.menu-icon {
+  display: none;
+}
+
+/* =================================== */
+/* === Start Detection Button Styles === */
+/* =================================== */
+
+/* Container for the button */
+.nav-button {
+  display: flex;
+  align-items: center;
+}
+
+/* The button link itself */
+.nav-button-link {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-button-link:hover {
+  background-color: var(--primary-green-dark); /* Use variable */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+
+/* =========================== */
+/* === Responsive Styles === */
+/* =========================== */
+
+@media screen and (max-width: 960px) {
+  .navbar-container {
+    /* Ensure padding is consistent */
+    padding: 0 20px; 
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 80px); /* Full height minus navbar */
+    position: absolute;
+    top: 80px; /* Position below navbar */
+    left: -100%; /* Start off-screen */
+    opacity: 0.98; /* Slight transparency */
+    transition: all 0.5s ease;
+    background: var(--background-white); /* Background for the menu */
+  }
+
+  /* Class added via JS/React state when menu is open */
+  .nav-menu.active {
+    left: 0; /* Slide in */
+    opacity: 0.98;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 1.5rem; /* Adjust padding for mobile links */
+    width: 100%;
+    display: table; /* Make link take full width */
+    border-bottom: none; /* Remove desktop underline */
+  }
+  
+  .nav-links.active {
+      color: var(--primary-green);
+      font-weight: 700;
+      border-bottom: none; /* Ensure no border on active mobile link */
+   }
+
+  .nav-links:hover {
+    background-color: #f8f8f8; /* Light background on hover */
+    color: var(--primary-green);
+    border-radius: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    height: auto; /* Adjust height for mobile */
+    border-bottom: 1px solid var(--border-color); /* Separator lines */
+  }
+  .nav-item:last-child {
+      border-bottom: none; /* No line for the last item */
+  }
+
+  /* Hamburger Icon */
+  .menu-icon {
+    display: block; /* Show hamburger icon */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--dark-text);
+  }
+
+  /* Button position on mobile */
+  .nav-button {
+     /* Button should be hidden when mobile menu icon is shown */
+     /* You typically add the button INSIDE the slide-out menu on mobile, or hide it */
+     display: none; 
+     /* If you want it visible next to the hamburger: */
+     /* margin-left: 1rem; */ 
+  }
+}
+
+/* Adjust button padding on very small screens if needed */
+@media screen and (max-width: 480px) {
+  .nav-button-link {
+    /* Adjustments if button is still visible */
+     /* padding: 0.5rem 1rem; */
+     /* font-size: 0.9rem; */
+  }
+}
+/* Update this rule in Navbar.css */
+.navbar-logo-icon {
+  margin-right: 8px; 
+  font-size: 1.6rem; 
+  color: var(--primary-green); 
+  display: inline-block; 
+  /* transform: rotate(-45deg); <--- REMOVE OR COMMENT OUT THIS LINE */
+  transition: transform 0.3s ease; 
+}
+.language-dropdown{
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  margin-right:15px;
+  font-size:14px;
+  cursor:pointer;
+}
+/* Also remove or comment out any :hover transform rule if you added one */
+/*
+.navbar-logo:hover .navbar-logo-icon {
+  transform: rotate(0deg); 
+}
+*/

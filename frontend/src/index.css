@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Define our color palette */
+:root {
+  --primary-green: #10b981;
+  --primary-green-dark: #0f9a6c;
+  --secondary-green: #047857; 
+  --dark-text: #1e293b;
+  --light-text: #475569;
+  --background-white: #ffffff;
+  --background-light: #f9fafb; /* Cleaner gray */
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.04); 
+  --aesthetic-gradient: linear-gradient(90deg, #f0fff4 0%, #fafff0 100%);
+}
+
+body {
+  /* THIS IS THE KEY LINE FOR THE FONT */
+  font-family: 'Poppins', sans-serif; 
+  margin: 0;
+  background-color: var(--background-light); 
+  color: var(--light-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  color: var(--dark-text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--light-text);
+  max-width: 600px;
+  margin: 0.5rem auto 2rem auto;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  margin: 0.25rem;
+  background-color: var(--primary-green);
+  color: white;
+  border: 2px solid var(--primary-green);
+}
+.cta-button:hover {
+  background-color: var(--primary-green-dark);
+  border-color: var(--primary-green-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+/* Other global styles if needed */

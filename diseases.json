@@ -1,0 +1,711 @@
+[
+  {
+    "id": "powdery_mildew_general",
+    "name": "Powdery Mildew",
+    "scientific_name": "Erysiphales order",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["White powdery spots on leaves, stems, flowers", "Distorted or stunted growth", "Yellowing and premature leaf drop"],
+    "prevention": ["Ensure proper air circulation", "Avoid overhead watering", "Remove infected plant parts promptly", "Plant resistant varieties"],
+    "treatment": ["Apply fungicides (sulfur, potassium bicarbonate, neem oil)", "Use systemic fungicides for severe cases"]
+  },
+  {
+    "id": "late_blight_potato_tomato",
+    "name": "Late Blight (Potato/Tomato)",
+    "scientific_name": "Phytophthora infestans",
+    "category": "Oomycete",
+    "severity": "high",
+    "symptoms": ["Large, water-soaked lesions on leaves, often with pale green/yellow border", "White fungal growth on undersides in humid conditions", "Rapid browning and death of foliage", "Dark brown lesions on stems", "Firm, brown rot on tubers/fruit"],
+    "prevention": ["Use certified disease-free seed/tubers", "Plant resistant varieties", "Maintain dry foliage", "Practice crop rotation", "Destroy volunteer plants and cull piles"],
+    "treatment": ["Apply preventative fungicides if disease is common", "Apply curative fungicides immediately upon symptom detection", "Remove and destroy infected plants promptly"]
+  },
+  {
+    "id": "bacterial_spot_pepper_tomato",
+    "name": "Bacterial Spot (Pepper/Tomato)",
+    "scientific_name": "Xanthomonas spp.",
+    "category": "Bacterial",
+    "severity": "medium",
+    "symptoms": ["Small, dark, water-soaked spots on leaves, often with yellow halos", "Spots merge, centers dry out ('shot-hole')", "Leaf yellowing and defoliation", "Scabby or raised lesions on fruit"],
+    "prevention": ["Use certified disease-free seeds/transplants", "Avoid working with wet plants", "Sanitize tools regularly", "Practice crop rotation (3+ years)"],
+    "treatment": ["Apply copper-based bactericides preventatively (limited effectiveness)", "Remove and destroy infected plants/debris", "Plant resistant varieties"]
+  },
+  {
+    "id": "tomato_mosaic_virus",
+    "name": "Tomato Mosaic Virus (ToMV)",
+    "scientific_name": "Tobamovirus",
+    "category": "Viral",
+    "severity": "high",
+    "symptoms": ["Mottled light/dark green patterns on leaves (mosaic)", "Stunted growth and reduced yield", "Leaf distortion (curling, fern-leaf)", "Internal browning in fruit"],
+    "prevention": ["Use certified virus-free seeds", "Avoid tobacco use around plants", "Sanitize hands and tools frequently", "Remove infected plants immediately", "Control weeds"],
+    "treatment": ["No cure exists; focus on prevention", "Remove and destroy infected plants immediately"]
+  },
+  {
+    "id": "root_rot_general",
+    "name": "Root Rot (General)",
+    "scientific_name": "Pythium, Phytophthora, Fusarium, Rhizoctonia spp.",
+    "category": "Fungal/Oomycete",
+    "severity": "medium",
+    "symptoms": ["Wilting despite adequate water", "Stunted growth, lack of vigor", "Yellowing lower leaves", "Dark brown/black, soft, mushy roots", "Plant collapse"],
+    "prevention": ["Ensure excellent soil drainage", "Avoid overwatering; allow soil to dry slightly", "Use sterile potting mix and clean pots", "Avoid planting in known problem areas"],
+    "treatment": ["Improve drainage immediately", "Allow soil to dry out", "Apply appropriate fungicides (drench) if identified early", "Remove severely affected plants"]
+  },
+  {
+    "id": "anthracnose_general",
+    "name": "Anthracnose",
+    "scientific_name": "Colletotrichum spp.",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Sunken, dark lesions on fruits, often with pinkish/orange spore masses", "Dark spots or blights on leaves and stems", "Premature leaf drop or fruit rot", "Twig dieback"],
+    "prevention": ["Use disease-free seeds/plants", "Prune to improve air circulation", "Remove and destroy infected plant debris", "Avoid overhead watering"],
+    "treatment": ["Apply appropriate fungicides preventatively or at first sign", "Prune out infected twigs/branches", "Remove infected fruit"]
+  },
+  {
+    "id": "apple_scab",
+    "name": "Apple Scab",
+    "scientific_name": "Venturia inaequalis",
+    "category": "Fungal",
+    "severity": "high",
+    "symptoms": ["Olive-green to brown spots on leaves, fruit, and twigs", "Spots become corky and cracked on fruit", "Premature leaf yellowing and drop", "Distorted fruit growth"],
+    "prevention": ["Plant resistant varieties", "Rake and destroy fallen leaves in autumn", "Prune trees for good air circulation", "Proper fungicide spray schedule in spring"],
+    "treatment": ["Apply fungicides according to local recommendations, starting early spring", "Maintain tree health"]
+  },
+  {
+    "id": "corn_gray_leaf_spot",
+    "name": "Corn Gray Leaf Spot",
+    "scientific_name": "Cercospora zeae-maydis",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Small lesions expand to long, narrow, rectangular gray/tan lesions", "Lesions restricted by leaf veins", "Severe infections cause leaves to blight"],
+    "prevention": ["Plant resistant/tolerant hybrids", "Practice crop rotation", "Manage crop residue (tillage)"],
+    "treatment": ["Apply foliar fungicides if disease pressure is high, especially around tasseling"]
+  },
+  {
+    "id": "grape_black_rot",
+    "name": "Grape Black Rot",
+    "scientific_name": "Guignardia bidwellii",
+    "category": "Fungal",
+    "severity": "high",
+    "symptoms": ["Circular, reddish-brown spots on leaves with dark borders", "Small black dots (pycnidia) in lesions", "Fruit rot starts pale, turns black, shrivels into hard 'mummy'"],
+    "prevention": ["Choose resistant varieties", "Prune for air circulation", "Remove mummified fruit and infected canes", "Good weed control"],
+    "treatment": ["Apply fungicides preventatively, starting early season", "Remove infected clusters"]
+  },
+  {
+    "id": "potato_early_blight",
+    "name": "Potato Early Blight",
+    "scientific_name": "Alternaria solani",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Dark brown/black spots on lower leaves, often with concentric rings ('target spots')", "Spots enlarge, leaves yellow and die", "Lesions on stems and tubers (dark, sunken)"],
+    "prevention": ["Use certified disease-free seed potatoes", "Practice crop rotation (2-3 years)", "Maintain plant vigor", "Control weeds"],
+    "treatment": ["Apply protective fungicides before disease appears or at first sign", "Remove heavily infected lower leaves"]
+  },
+  {
+    "id": "downy_mildew_cucurbits",
+    "name": "Downy Mildew (Cucurbits)",
+    "scientific_name": "Pseudoperonospora cubensis",
+    "category": "Oomycete",
+    "severity": "high",
+    "symptoms": ["Yellow, angular spots on upper leaf surfaces", "Grayish/purplish fuzzy growth on undersides in humid conditions", "Leaves rapidly turn brown, curl, and die", "Reduced fruit production"],
+    "prevention": ["Plant resistant varieties", "Ensure good air circulation and sunlight", "Avoid overhead watering", "Monitor local disease forecasts"],
+    "treatment": ["Apply fungicides preventatively and curatively (rotate modes of action)", "Remove infected leaves promptly"]
+  },
+  {
+    "id": "fire_blight_apple_pear",
+    "name": "Fire Blight (Apple/Pear)",
+    "scientific_name": "Erwinia amylovora",
+    "category": "Bacterial",
+    "severity": "high",
+    "symptoms": ["Blossoms wilt, turn brown/black", "Shoots wilt ('shepherd's crook')", "Leaves appear scorched", "Watery, tan ooze", "Cankers on branches"],
+    "prevention": ["Plant resistant varieties", "Avoid excessive nitrogen fertilizer", "Prune out infections during dormancy", "Disinfect tools"],
+    "treatment": ["Apply bactericides during bloom", "Prune out infections promptly in summer (ugly stub cut)"]
+  },
+  {
+    "id": "fusarium_wilt_tomato",
+    "name": "Fusarium Wilt (Tomato)",
+    "scientific_name": "Fusarium oxysporum f. sp. lycopersici",
+    "category": "Fungal",
+    "severity": "high",
+    "symptoms": ["Yellowing of lower leaves, often one-sided", "Wilting, especially during heat", "Stunted growth", "Brown discoloration inside stem base"],
+    "prevention": ["Plant resistant varieties ('F')", "Use disease-free seeds", "Long crop rotation (4+ years)", "Maintain soil pH 6.5-7.0", "Sanitize tools"],
+    "treatment": ["No cure", "Remove and destroy infected plants", "Solarize soil"]
+  },
+  {
+    "id": "septoria_leaf_spot_tomato",
+    "name": "Septoria Leaf Spot (Tomato)",
+    "scientific_name": "Septoria lycopersici",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Numerous small, circular spots (~1/8 inch) with dark borders, tan centers on lower leaves", "Small black dots (pycnidia) in centers", "Leaves yellow, wither, drop"],
+    "prevention": ["Use disease-free seed/transplants", "Crop rotation", "Mulch around plants", "Improve air circulation", "Avoid overhead watering"],
+    "treatment": ["Apply fungicides (chlorothalonil, mancozeb, copper)", "Remove infected lower leaves"]
+  },
+  {
+    "id": "verticillium_wilt_general",
+    "name": "Verticillium Wilt",
+    "scientific_name": "Verticillium spp.",
+    "category": "Fungal",
+    "severity": "high",
+    "symptoms": ["Wilting on one side of plant/leaves", "Yellowing and browning/death of affected leaves", "Stunted growth", "Streaky brown discoloration inside stem"],
+    "prevention": ["Plant resistant varieties ('V')", "Long crop rotation", "Control weeds", "Solarize soil"],
+    "treatment": ["No cure", "Remove and destroy infected plants", "Maintain plant vigor"]
+  },
+  {
+    "id": "cedar_apple_rust",
+    "name": "Cedar-Apple Rust",
+    "scientific_name": "Gymnosporangium juniperi-virginianae",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Bright yellow-orange spots on apple leaves", "Black dots then tube-like structures (aecia) on underside", "Leaf drop", "Yellow-orange lesions on apple fruit"],
+    "prevention": ["Remove nearby Eastern red cedar", "Plant rust-resistant apple varieties", "Preventative fungicides in spring"],
+    "treatment": ["Fungicide sprays timed correctly in spring", "Focus on prevention"]
+  },
+  {
+    "id": "clubroot_brassicas",
+    "name": "Clubroot (Brassicas)",
+    "scientific_name": "Plasmodiophora brassicae",
+    "category": "Protist",
+    "severity": "high",
+    "symptoms": ["Swollen, distorted, club-shaped roots", "Wilting leaves during sunny days", "Stunted growth", "Yellowing leaves"],
+    "prevention": ["Raise soil pH to 7.2+", "Use disease-free transplants", "Long crop rotation (7+ years)", "Improve drainage", "Clean tools"],
+    "treatment": ["No cure", "Focus on prevention", "Remove infected plants"]
+  },
+  {
+    "id": "peach_leaf_curl",
+    "name": "Peach Leaf Curl",
+    "scientific_name": "Taphrina deformans",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Leaves thicken, curl, pucker, distort", "Affected leaves turn reddish/purplish", "Grayish-white powdery coating", "Premature leaf drop"],
+    "prevention": ["Plant resistant varieties", "Apply dormant fungicide spray (copper, chlorothalonil) post-leaf fall or pre-bud swell"],
+    "treatment": ["Fungicides only effective during dormancy", "Maintain tree health"]
+  },
+  {
+    "id": "black_knot_prunus",
+    "name": "Black Knot (Cherry/Plum)",
+    "scientific_name": "Apiosporina morbosa",
+    "category": "Fungal",
+    "severity": "high",
+    "symptoms": ["Hard, black, elongated swellings (galls) on twigs/branches", "Galls enlarge yearly", "Branch wilt/death"],
+    "prevention": ["Plant resistant varieties", "Prune out knots during dormancy (cut below gall)", "Remove wild Prunus"],
+    "treatment": ["Pruning is primary control", "Destroy pruned material", "Fungicides in spring may reduce new infections"]
+  },
+  {
+    "id": "damping_off_seedlings",
+    "name": "Damping Off (Seedlings)",
+    "scientific_name": "Pythium, Phytophthora, Rhizoctonia, Fusarium spp.",
+    "category": "Fungal/Oomycete",
+    "severity": "high",
+    "symptoms": ["Seedlings fail to emerge", "Stems rot at soil line, collapse", "Decayed roots", "White fuzzy mold"],
+    "prevention": ["Use sterile mix and clean containers", "Avoid overwatering", "Ensure good air circulation", "Provide adequate light", "Sow thinly"],
+    "treatment": ["No cure", "Discard infected mix/seedlings", "Improve conditions", "Use fungicide-treated seed/drench preventatively"]
+  },
+  {
+    "id": "botrytis_blight_gray_mold",
+    "name": "Botrytis Blight (Gray Mold)",
+    "scientific_name": "Botrytis cinerea",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Brown, water-soaked spots on flowers, leaves, stems, fruit", "Grayish-brown fuzzy mold in humid conditions", "Blossom blight, fruit rot, stem cankers"],
+    "prevention": ["Improve air circulation", "Avoid overhead watering", "Remove dead/dying debris", "Handle plants carefully"],
+    "treatment": ["Remove and destroy infected parts immediately", "Apply fungicides preventatively in cool, humid weather"]
+  },
+  {
+    "id": "rust_general",
+    "name": "Rust (General)",
+    "scientific_name": "Pucciniales order",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Yellow, orange, reddish, brown, or black powdery pustules", "Spores release when touched", "Leaf yellowing, distortion, drop"],
+    "prevention": ["Plant resistant varieties", "Ensure good air circulation", "Avoid overhead watering", "Remove infected leaves/plants", "Manage alternate hosts"],
+    "treatment": ["Apply fungicides (neem oil, sulfur, synthetic) at first sign", "Remove infected parts"]
+  },
+  {
+    "id": "leaf_curl_aphid",
+    "name": "Leaf Curl (Aphid-Induced)",
+    "scientific_name": "Aphidoidea superfamily",
+    "category": "Pest",
+    "severity": "low",
+    "symptoms": ["Leaves curl downward/inward", "Distorted or puckered leaves", "Presence of aphids on undersides/new growth", "Sticky honeydew"],
+    "prevention": ["Monitor plants regularly", "Encourage beneficial insects", "Use reflective mulch"],
+    "treatment": ["Strong spray of water", "Insecticidal soap or horticultural oil", "Appropriate insecticides if severe"]
+  },
+  {
+    "id": "spider_mites_general",
+    "name": "Spider Mites",
+    "scientific_name": "Tetranychidae family",
+    "category": "Pest",
+    "severity": "medium",
+    "symptoms": ["Tiny yellow/white speckles (stippling) on leaves", "Leaves appear bronzed/yellowed", "Fine webbing in heavy infestations", "Tiny moving dots visible with magnification"],
+    "prevention": ["Keep plants adequately watered", "Increase humidity", "Regularly inspect undersides"],
+    "treatment": ["Strong spray of water", "Insecticidal soap or horticultural oil", "Predatory mites", "Specific miticides"]
+  },
+  {
+    "id": "nutrient_deficiency_general",
+    "name": "Nutrient Deficiency",
+    "scientific_name": "N/A",
+    "category": "Abiotic",
+    "severity": "low",
+    "symptoms": ["Varies: Yellowing (chlorosis), stunted growth, purplish color, leaf tip burn, poor flowering/fruiting"],
+    "prevention": ["Use balanced fertilizer", "Maintain proper soil pH", "Ensure good soil structure"],
+    "treatment": ["Identify deficiency (soil test)", "Apply appropriate fertilizer/supplement", "Correct soil pH"]
+  },
+  {
+    "id": "cucumber_mosaic_virus",
+    "name": "Cucumber Mosaic Virus (CMV)",
+    "scientific_name": "Cucumovirus",
+    "category": "Viral",
+    "severity": "high",
+    "symptoms": ["Mosaic patterns on leaves", "Stunting, yellowing", "Leaf distortion ('shoestring' effect)", "Flower color breaking", "Warty fruit"],
+    "prevention": ["Control aphid vectors", "Remove infected plants immediately", "Control weeds", "Use resistant varieties"],
+    "treatment": ["No cure", "Focus on prevention and vector control"]
+  },
+  {
+    "id": "black_spot_rose",
+    "name": "Black Spot (Rose)",
+    "scientific_name": "Diplocarpon rosae",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Black spots with fringed margins on leaves", "Yellow halos around spots", "Premature leaf drop", "Reduced plant vigor"],
+    "prevention": ["Plant resistant varieties", "Ensure good air circulation and sun", "Avoid overhead watering", "Rake and destroy fallen leaves"],
+    "treatment": ["Apply fungicides preventatively", "Remove infected leaves promptly"]
+  },
+  {
+    "id": "crown_gall",
+    "name": "Crown Gall",
+    "scientific_name": "Agrobacterium tumefaciens",
+    "category": "Bacterial",
+    "severity": "high",
+    "symptoms": ["Rough, rounded galls (tumors) on roots and lower stems near soil line", "Stunted growth, poor vigor"],
+    "prevention": ["Purchase disease-free plants", "Avoid wounding plants near soil line", "Disinfect tools", "Use biological control agents (Agrobacterium radiobacter K84) preventatively"],
+    "treatment": ["No cure for infected plants", "Remove and destroy severely affected plants", "Carefully cut out galls on valuable plants (limited success)"]
+  },
+  {
+    "id": "hollyhock_rust",
+    "name": "Hollyhock Rust",
+    "scientific_name": "Puccinia malvacearum",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Yellow to orange spots on upper leaf surfaces", "Bright orange to brown pustules on lower leaf surfaces and stems", "Leaves yellow, wither, and die"],
+    "prevention": ["Remove and destroy infected leaves/plants in fall", "Ensure good air circulation", "Avoid overhead watering"],
+    "treatment": ["Apply fungicides (sulfur, neem oil, synthetic) at first sign", "Remove infected leaves promptly"]
+  },
+  {
+    "id": "iris_leaf_spot",
+    "name": "Iris Leaf Spot",
+    "scientific_name": "Mycosphaerella macrospora (sexual), Cladosporium iridis (asexual)",
+    "category": "Fungal",
+    "severity": "low",
+    "symptoms": ["Small, water-soaked spots enlarging to oval lesions with gray centers and reddish-brown borders", "Spots may merge, causing leaf tips to die back"],
+    "prevention": ["Remove and destroy infected leaves in fall", "Ensure good air circulation and drainage", "Avoid overhead watering"],
+    "treatment": ["Apply fungicides starting in spring if disease was severe previously", "Remove infected leaves during growing season"]
+  },
+  {
+    "id": "shot_hole_prunus",
+    "name": "Shot Hole (Prunus)",
+    "scientific_name": "Wilsonomyces carpophilus",
+    "category": "Fungal",
+    "severity": "medium",
+    "symptoms": ["Small purplish spots on leaves, twigs, fruit", "Leaf spots enlarge, centers turn brown and drop out, leaving holes", "Rough lesions on fruit", "Twig dieback"],
+    "prevention": ["Prune for air circulation", "Apply dormant sprays (copper, Bordeaux)", "Protect trees from rain splash if possible"],
+    "treatment": ["Apply fungicides during growing season, especially during wet periods", "Prune out infected twigs"]
+  },
+  {
+    "id": "slime_mold",
+    "name": "Slime Mold",
+    "scientific_name": "Various species (e.g., Fuligo septica)",
+    "category": "Protist",
+    "severity": "low",
+    "symptoms": ["Brightly colored (yellow, orange, white) slimy or crusty mass growing over mulch, turf, or low plant parts", "Does not infect plants, just grows on surface"],
+    "prevention": ["Reduce excess moisture if possible", "Break up thick layers of mulch"],
+    "treatment": ["Usually disappears on its own", "Can be physically removed (scooped, washed off) if unsightly", "No chemical control needed"]
+  },
+  {
+    "id": "sooty_mold",
+    "name": "Sooty Mold",
+    "scientific_name": "Various fungi (e.g., Capnodium spp.)",
+    "category": "Fungal",
+    "severity": "low",
+    "symptoms": ["Black, powdery coating on leaves, stems, fruit", "Grows on sugary honeydew excreted by sucking insects (aphids, scale, whiteflies)"],
+    "prevention": ["Control the underlying insect infestation"],
+    "treatment": ["Control the insects producing honeydew", "Mold can sometimes be washed off with soap and water once insects are gone"]
+  },
+  {
+    "id": "sunscald_fruit_leaves",
+    "name": "Sunscald",
+    "scientific_name": "N/A",
+    "category": "Abiotic",
+    "severity": "low",
+    "symptoms": ["Light-colored, bleached, or blistered areas on fruits/leaves exposed to direct, intense sun", "Affected areas may become sunken, papery, and turn black due to secondary fungi"],
+    "prevention": ["Maintain adequate leaf canopy through proper pruning/fertilization", "Provide temporary shade during extreme heat (shade cloth)", "Orient rows to minimize direct sun exposure on fruit"],
+    "treatment": ["No cure for affected tissue", "Prevent further damage", "Discard severely damaged fruit"]
+  },
+  {
+    "id": "tomato_spotted_wilt_virus",
+    "name": "Tomato Spotted Wilt Virus (TSWV)",
+    "scientific_name": "Tospovirus",
+    "category": "Viral",
+    "severity": "high",
+    "symptoms": ["Stunting, bronzing or purpling of upper leaves", "Necrotic (dead) spots or ringspots on leaves/stems", "Wilting", "Distorted growth", "Ring patterns or uneven ripening on fruit"],
+    "prevention": ["Control thrips (insect vector)", "Use virus-free transplants", "Remove infected plants immediately", "Control weeds"],
+    "treatment": ["No cure", "Focus on prevention and vector control"]
+  },
+  {
+    "id": "whiteflies_general",
+    "name": "Whiteflies",
+    "scientific_name": "Aleyrodidae family",
+    "category": "Pest",
+    "severity": "medium",
+    "symptoms": ["Tiny white, moth-like insects that fly up when disturbed", "Yellowing or silvering of leaves", "Stunted growth", "Sticky honeydew, leading to sooty mold"],
+    "prevention": ["Use reflective mulch", "Inspect new plants carefully", "Encourage beneficial insects"],
+    "treatment": ["Yellow sticky traps", "Insecticidal soap or horticultural oil", "Appropriate insecticides", "Biological control (e.g., Encarsia formosa)"]
+  },
+  {
+    "id": "canker_general",
+    "name": "Canker (General)",
+    "scientific_name": "Various fungi or bacteria",
+    "category": "Fungal/Bacterial",
+    "severity": "medium",
+    "symptoms": ["Sunken, discolored, dead areas on stems, branches, or trunks", "May ooze gum or sap", "Cracked bark", "Dieback of parts above the canker"],
+    "prevention": ["Avoid wounding plants", "Maintain plant health", "Prune during dry weather", "Disinfect tools"],
+    "treatment": ["Prune out small cankered branches well below infection", "Surgically remove cankers on trunks (limited success)", "Improve plant vigor"]
+  },
+  {
+    "id": "gall_general",
+    "name": "Gall (General)",
+    "scientific_name": "Various insects, mites, fungi, bacteria, viruses",
+    "category": "Pest/Pathogen",
+    "severity": "low",
+    "symptoms": ["Abnormal growths or swellings on leaves, stems, flowers, or roots", "Shape and size vary greatly depending on cause"],
+    "prevention": ["Maintain plant health", "Control specific pests if known cause"],
+    "treatment": ["Usually cosmetic and doesn't harm plant significantly", "Prune out affected parts if unsightly or severe", "Specific treatments depend on the causal agent"]
+  },
+  {
+    "id": "leaf_miners_general",
+    "name": "Leaf Miners",
+    "scientific_name": "Various insect larvae (moths, flies, sawflies)",
+    "category": "Pest",
+    "severity": "low",
+    "symptoms": ["Winding, serpentine tunnels or blotchy patches within leaf tissue", "Larvae may be visible inside tunnels"],
+    "prevention": ["Monitor plants for egg laying", "Use floating row covers"],
+    "treatment": ["Remove and destroy affected leaves", "Encourage beneficial wasps", "Systemic insecticides for severe cases (use cautiously)"]
+  },
+  {
+    "id": "mosaic_virus_general",
+    "name": "Mosaic Virus (General)",
+    "scientific_name": "Various viruses",
+    "category": "Viral",
+    "severity": "medium",
+    "symptoms": ["Light green, yellow, or white patches/streaks on leaves (mosaic pattern)", "Stunted growth", "Leaf distortion (curling, blistering)"],
+    "prevention": ["Use virus-free seeds/plants", "Control insect vectors (aphids, leafhoppers)", "Sanitize tools", "Remove infected plants"],
+    "treatment": ["No cure", "Focus on prevention and vector control"]
+  },
+  {
+    "id": "nematodes_root_knot",
+    "name": "Root-Knot Nematodes",
+    "scientific_name": "Meloidogyne spp.",
+    "category": "Pest (Nematode)",
+    "severity": "high",
+    "symptoms": ["Galls or knots on roots", "Stunted growth, yellowing", "Wilting during heat", "Reduced yield"],
+    "prevention": ["Plant resistant varieties", "Practice crop rotation with non-host crops", "Incorporate organic matter into soil", "Solarize soil"],
+    "treatment": ["Difficult to control once established", "Use nematicides (often restricted use)", "Focus on preventative soil health practices"]
+  },
+  {
+    "id": "scale_insects_general",
+    "name": "Scale Insects",
+    "scientific_name": "Coccoidea superfamily",
+    "category": "Pest",
+    "severity": "medium",
+    "symptoms": ["Small bumps or shell-like coverings on stems, leaves, fruit (adult females)", "Yellowing leaves, stunted growth", "Sticky honeydew, leading to sooty mold"],
+    "prevention": ["Inspect new plants", "Prune infested branches", "Encourage beneficial insects"],
+    "treatment": ["Horticultural oil spray during dormant season or when crawlers are active", "Systemic insecticides", "Scrub off small infestations"]
+  },
+  {
+    "id": "thrips_general",
+    "name": "Thrips",
+    "scientific_name": "Thysanoptera order",
+    "category": "Pest",
+    "severity": "medium",
+    "symptoms": ["Silvery or stippled appearance on leaves/petals", "Distorted growth of leaves, buds, flowers", "Tiny black specks (feces)", "Tiny, slender insects (often yellow, brown, black) visible on plants"],
+    "prevention": ["Use reflective mulch", "Remove weeds", "Inspect plants regularly"],
+    "treatment": ["Insecticidal soap or horticultural oil", "Beneficial insects (e.g., predatory mites)", "Appropriate insecticides (rotate chemicals)"]
+  },
+  {
+    "id": "blossom_end_rot_tomato_pepper",
+    "name": "Blossom End Rot (Tomato/Pepper)",
+    "scientific_name": "N/A",
+    "category": "Abiotic (Calcium Deficiency/Water Stress)",
+    "severity": "low",
+    "symptoms": ["Dark, sunken, leathery spot on the blossom end (bottom) of developing fruit", "Starts water-soaked, turns brown/black"],
+    "prevention": ["Maintain consistent soil moisture (avoid wide fluctuations)", "Ensure adequate calcium in soil (soil test)", "Maintain soil pH around 6.5", "Avoid excessive nitrogen fertilizer"],
+    "treatment": ["Correct watering practices", "Apply calcium spray to foliage/fruit for quick fix (limited effectiveness)", "Improve soil conditions for future crops"]
+  },
+  {
+    "id": "iron_chlorosis",
+    "name": "Iron Chlorosis",
+    "scientific_name": "N/A",
+    "category": "Abiotic (Iron Deficiency)",
+    "severity": "low",
+    "symptoms": ["Yellowing between veins (interveinal chlorosis) on newest leaves, while veins remain green", "Severe cases cause entire leaf to turn yellow or white"],
+    "prevention": ["Maintain proper soil pH (high pH makes iron unavailable)", "Improve soil drainage and aeration", "Use iron-tolerant plants"],
+    "treatment": ["Apply chelated iron fertilizer to soil or foliage", "Correct high soil pH (e.g., with sulfur, takes time)"]
+  },
+  {
+    "id": "nitrogen_deficiency",
+    "name": "Nitrogen Deficiency",
+    "scientific_name": "N/A",
+    "category": "Abiotic",
+    "severity": "low",
+    "symptoms": ["General yellowing (chlorosis) of older, lower leaves first", "Stunted growth", "Thin stems"],
+    "prevention": ["Regular application of balanced fertilizer or nitrogen source"],
+    "treatment": ["Apply nitrogen-rich fertilizer (quick-release for fast results, slow-release for longer term)", "Incorporate compost or manure into soil"]
+  },
+  {
+    "id": "phosphorus_deficiency",
+    "name": "Phosphorus Deficiency",
+    "scientific_name": "N/A",
+    "category": "Abiotic",
+    "severity": "low",
+    "symptoms": ["Stunted growth", "Dark green or purplish discoloration of leaves, especially older ones and stems", "Delayed maturity"],
+    "prevention": ["Ensure adequate phosphorus levels in soil (soil test)", "Maintain proper soil pH"],
+    "treatment": ["Apply phosphorus-containing fertilizer (e.g., bone meal, rock phosphate, synthetic P fertilizers)", "Incorporate organic matter"]
+  },
+  {
+    "id": "potassium_deficiency",
+    "name": "Potassium Deficiency",
+    "scientific_name": "N/A",
+    "category": "Abiotic",
+    "severity": "low",
+    "symptoms": ["Yellowing or scorching along edges (margins) of older leaves first", "Interveinal chlorosis may occur", "Weak stems, poor flowering/fruiting"],
+    "prevention": ["Ensure adequate potassium levels in soil (soil test)", "Avoid excessive calcium/magnesium which can interfere with K uptake"],
+    "treatment": ["Apply potassium-containing fertilizer (e.g., potassium sulfate, wood ash cautiously, synthetic K fertilizers)"]
+  },
+  {
+    "id": "water_stress_wilt",
+    "name": "Water Stress (Wilt)",
+    "scientific_name": "N/A",
+    "category": "Abiotic",
+    "severity": "low",
+    "symptoms": ["Drooping or wilting of leaves and stems", "Leaves may curl or appear dull", "Plant recovers quickly after watering if not too severe"],
+    "prevention": ["Water plants thoroughly and consistently based on needs", "Mulch soil to conserve moisture", "Improve soil water-holding capacity with organic matter"],
+    "treatment": ["Water the plant thoroughly", "Provide temporary shade if wilt is due to extreme heat"]
+  },
+  {
+"id": "banana_panama_disease",
+"name": "Panama Disease (Banana Wilt)",
+"scientific_name": "Fusarium oxysporum f. sp. cubense",
+"category": "Fungal",
+"severity": "high",
+"symptoms": ["Yellowing of older leaves", "Leaves collapse around pseudostem", "Brown vascular discoloration", "Plant eventually dies"],
+"prevention": ["Use resistant banana cultivars", "Use disease-free planting material", "Avoid contaminated soil movement"],
+"treatment": ["Remove infected plants immediately", "Improve field sanitation", "Plant resistant varieties"]
+},
+
+{
+"id": "banana_black_sigatoka",
+"name": "Black Sigatoka",
+"scientific_name": "Mycosphaerella fijiensis",
+"category": "Fungal",
+"severity": "high",
+"symptoms": ["Dark streaks on banana leaves", "Leaves turn brown and dry", "Reduced fruit yield"],
+"prevention": ["Improve air circulation", "Remove infected leaves", "Plant resistant varieties"],
+"treatment": ["Apply fungicides regularly", "Monitor plantations frequently"]
+},
+
+{
+"id": "rice_blast",
+"name": "Rice Blast",
+"scientific_name": "Magnaporthe oryzae",
+"category": "Fungal",
+"severity": "high",
+"symptoms": ["Diamond-shaped lesions on leaves", "Neck rot of panicles", "Reduced grain yield"],
+"prevention": ["Use resistant rice varieties", "Avoid excessive nitrogen fertilizer"],
+"treatment": ["Apply fungicides like tricyclazole"]
+},
+
+{
+"id": "rice_bacterial_leaf_blight",
+"name": "Bacterial Leaf Blight (Rice)",
+"scientific_name": "Xanthomonas oryzae",
+"category": "Bacterial",
+"severity": "high",
+"symptoms": ["Yellow stripes on rice leaves", "Leaves dry and wilt", "Reduced crop yield"],
+"prevention": ["Use resistant varieties", "Use clean irrigation water"],
+"treatment": ["Apply copper bactericides"]
+},
+
+{
+"id": "wheat_leaf_rust",
+"name": "Wheat Leaf Rust",
+"scientific_name": "Puccinia triticina",
+"category": "Fungal",
+"severity": "medium",
+"symptoms": ["Orange powdery pustules on leaves", "Reduced photosynthesis"],
+"prevention": ["Plant resistant wheat varieties"],
+"treatment": ["Apply fungicides"]
+},
+
+{
+"id": "wheat_stem_rust",
+"name": "Wheat Stem Rust",
+"scientific_name": "Puccinia graminis",
+"category": "Fungal",
+"severity": "high",
+"symptoms": ["Reddish-brown pustules on stems", "Weak stems and lodging"],
+"prevention": ["Grow resistant wheat cultivars"],
+"treatment": ["Apply systemic fungicides"]
+},
+
+{
+"id": "maize_common_rust",
+"name": "Maize Common Rust",
+"scientific_name": "Puccinia sorghi",
+"category": "Fungal",
+"severity": "medium",
+"symptoms": ["Reddish pustules on maize leaves", "Leaf damage"],
+"prevention": ["Use resistant hybrids"],
+"treatment": ["Apply fungicides"]
+},
+
+{
+"id": "maize_smut",
+"name": "Corn Smut",
+"scientific_name": "Ustilago maydis",
+"category": "Fungal",
+"severity": "medium",
+"symptoms": ["Large gray galls on corn ears", "Distorted kernels"],
+"prevention": ["Avoid plant injuries", "Use resistant varieties"],
+"treatment": ["Remove infected plant parts"]
+},
+
+{
+"id": "banana_bunchy_top",
+"name": "Banana Bunchy Top Virus",
+"scientific_name": "Banana bunchy top virus",
+"category": "Viral",
+"severity": "high",
+"symptoms": ["Bunched leaves at the top", "Stunted growth"],
+"prevention": ["Control aphid vectors", "Use disease-free planting materials"],
+"treatment": ["Remove infected plants"]
+},
+
+{
+"id": "cotton_leaf_curl_virus",
+"name": "Cotton Leaf Curl Virus",
+"scientific_name": "Begomovirus",
+"category": "Viral",
+"severity": "high",
+"symptoms": ["Leaves curl upward", "Thickened veins"],
+"prevention": ["Control whiteflies", "Use resistant varieties"],
+"treatment": ["Remove infected plants"]
+},
+
+{
+"id": "sugarcane_red_rot",
+"name": "Sugarcane Red Rot",
+"scientific_name": "Colletotrichum falcatum",
+"category": "Fungal",
+"severity": "high",
+"symptoms": ["Red discoloration inside stalk", "Drying of leaves"],
+"prevention": ["Use resistant varieties", "Avoid waterlogging"],
+"treatment": ["Destroy infected plants"]
+},
+
+{
+"id": "chilli_leaf_curl",
+"name": "Chilli Leaf Curl Virus",
+"scientific_name": "Begomovirus",
+"category": "Viral",
+"severity": "high",
+"symptoms": ["Leaf curling", "Stunted plant growth"],
+"prevention": ["Control whiteflies", "Use resistant varieties"],
+"treatment": ["Remove infected plants"]
+},
+
+{
+"id": "okra_yellow_vein_mosaic",
+"name": "Okra Yellow Vein Mosaic Virus",
+"scientific_name": "Begomovirus",
+"category": "Viral",
+"severity": "high",
+"symptoms": ["Yellow veins on leaves", "Reduced fruit production"],
+"prevention": ["Control insect vectors", "Plant resistant varieties"],
+"treatment": ["Remove infected plants"]
+},
+
+{
+"id": "cabbage_black_rot",
+"name": "Black Rot (Cabbage)",
+"scientific_name": "Xanthomonas campestris",
+"category": "Bacterial",
+"severity": "high",
+"symptoms": ["V-shaped yellow lesions on leaves", "Leaf drop"],
+"prevention": ["Use disease-free seeds", "Crop rotation"],
+"treatment": ["Apply copper bactericides"]
+},
+
+{
+"id": "onion_purple_blotch",
+"name": "Onion Purple Blotch",
+"scientific_name": "Alternaria porri",
+"category": "Fungal",
+"severity": "medium",
+"symptoms": ["Purple lesions on onion leaves"],
+"prevention": ["Crop rotation", "Improve air circulation"],
+"treatment": ["Apply fungicides"]
+},
+
+{
+"id": "mango_powdery_mildew",
+"name": "Mango Powdery Mildew",
+"scientific_name": "Oidium mangiferae",
+"category": "Fungal",
+"severity": "medium",
+"symptoms": ["White powdery growth on flowers", "Reduced fruit set"],
+"prevention": ["Ensure air circulation", "Avoid excessive humidity"],
+"treatment": ["Apply sulfur fungicides"]
+},
+
+{
+"id": "papaya_ring_spot",
+"name": "Papaya Ring Spot Virus",
+"scientific_name": "Papaya ringspot virus",
+"category": "Viral",
+"severity": "high",
+"symptoms": ["Ring patterns on papaya fruits", "Leaf mottling"],
+"prevention": ["Control aphids", "Use virus-free plants"],
+"treatment": ["Remove infected plants"]
+},
+
+{
+"id": "coffee_leaf_rust",
+"name": "Coffee Leaf Rust",
+"scientific_name": "Hemileia vastatrix",
+"category": "Fungal",
+"severity": "high",
+"symptoms": ["Orange powder on leaf underside"],
+"prevention": ["Plant resistant coffee varieties"],
+"treatment": ["Apply fungicides"]
+},
+
+{
+"id": "tea_blister_blight",
+"name": "Tea Blister Blight",
+"scientific_name": "Exobasidium vexans",
+"category": "Fungal",
+"severity": "medium",
+"symptoms": ["Blisters on tea leaves"],
+"prevention": ["Maintain plantation hygiene"],
+"treatment": ["Apply fungicides"]
+},
+
+{
+"id": "ginger_soft_rot",
+"name": "Ginger Soft Rot",
+"scientific_name": "Pythium spp.",
+"category": "Oomycete",
+"severity": "high",
+"symptoms": ["Rhizomes become soft and rotten"],
+"prevention": ["Use disease-free rhizomes"],
+"treatment": ["Apply fungicides"]
+}
+]

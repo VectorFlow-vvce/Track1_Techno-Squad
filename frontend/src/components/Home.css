@@ -1,0 +1,206 @@
+/* General Styling */
+.home-page { 
+  margin: 0 auto; 
+}
+.home-page section { 
+  padding: 3rem 1rem; 
+  text-align: center; 
+}
+.section-subtitle { 
+  color: var(--light-text); 
+  max-width: 600px; 
+  margin: 0.5rem auto 2.5rem auto; 
+}
+
+/* Custom Variables (Ensure these are defined in index.css) */
+/* :root {
+  --primary-green: #10b981;
+  --secondary-green: #047857;
+  --dark-text: #1e293b;
+  --light-text: #475569;
+  --background-white: #ffffff;
+  --background-light: #f9fafb;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.04);
+  --aesthetic-gradient: linear-gradient(90deg, #f0fff4 0%, #fafff0 100%);
+} */
+
+/* Buttons */
+.cta-button { 
+  display: inline-block; 
+  padding: 0.8rem 1.75rem;
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  margin: 0.25rem;
+  background-color: var(--primary-green); 
+  color: white; 
+  border: 2px solid var(--primary-green); 
+}
+.cta-button:hover { 
+  background-color: var(--secondary-green); 
+  border-color: var(--secondary-green); 
+  transform: translateY(-3px); 
+}
+.cta-button-secondary { 
+  display: inline-block; 
+  padding: 0.8rem 1.75rem;
+  border-radius: 8px; 
+  text-decoration: none; 
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  margin: 0.25rem;
+  background-color: var(--background-white); 
+  color: var(--dark-text); 
+  border: 2px solid var(--border-color); 
+}
+.cta-button-secondary:hover { 
+  border-color: var(--dark-text); 
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+
+/* Hero Section */
+.hero-section-wrapper {
+  background: var(--aesthetic-gradient);
+  padding: 2.5rem 0; 
+  margin-bottom: 3rem; 
+}
+.hero-section {
+  max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; 
+  align-items: center; text-align: center; gap: 2rem; padding: 0 1.5rem;
+  background: none; border-radius: 0; box-shadow: none; margin-top: 0; 
+  min-height: auto; position: relative; overflow: hidden;
+}
+.hero-content { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background-color: #e6fcf5; color: var(--secondary-green); padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.9rem; font-weight: 500; margin-bottom: 1.5rem; }
+.hero-content h1 { font-size: 2.8rem; color: var(--dark-text); line-height: 1.2; }
+.hero-content p { font-size: 1.1rem; color: var(--light-text); margin: 1.5rem 0; max-width: 600px; }
+.hero-buttons { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0; width: 100%; max-width: 300px; }
+.hero-stats { display: flex; gap: 2.5rem; margin: 1.5rem 0 0 0; justify-content: center; }
+.stat-item { display: flex; flex-direction: column; }
+.stat-item strong { font-size: 2.2rem; color: var(--secondary-green); }
+.stat-item span { color: #374151; font-size: 1rem; }
+.hero-image { flex: 1; display: block; width: 100%; margin-top: 2rem; }
+.hero-image img { width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); }
+@media (min-width: 768px) {
+  .hero-section-wrapper { padding: 2.5rem 0; }
+  .hero-section { flex-direction: row; text-align: left; }
+  .hero-content { align-items: flex-start; }
+  .hero-content h1 { font-size: 3.5rem; }
+  .hero-buttons { flex-direction: row; gap: 1rem; max-width: none; width: auto; }
+  .hero-stats { justify-content: flex-start; margin-top: 2.5rem; }
+  .hero-image { margin-top: 0; }
+  .hero-image img { transform: translateY(-10px); max-width: 100%; }
+}
+
+/* ==================================================== */
+/* === UPDATED: Features Section === */
+/* ==================================================== */
+.features-section { 
+  padding-top: 4rem; /* More padding above */
+  padding-bottom: 4rem; /* More padding below */
+  max-width: none; /* Allow background to span full width */
+  margin: 0; /* Remove horizontal margin */
+  background-color: var(--background-light); /* ADDED: Light gray background */
+  border-top: 1px solid var(--border-color); /* Separator */
+  border-bottom: 1px solid var(--border-color); /* Separator */
+}
+
+/* Container to center the grid within the gray background */
+.features-grid-container {
+  max-width: 1200px;
+  margin: 0 auto; /* Center the grid */
+  padding: 0 1rem; /* Horizontal padding for content */
+}
+
+.features-grid { 
+  display: grid; 
+  gap: 1.5rem; 
+  text-align: left; 
+  grid-template-columns: 1fr; 
+}
+@media (min-width: 768px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.feature-card { 
+  background-color: var(--background-white); /* Keep cards white */
+  padding: 2rem; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 12px var(--shadow-color); /* Softer shadow */
+  transition: all 0.3s ease; 
+  border: 1px solid var(--border-color); /* Clean border */
+  display: flex; 
+  flex-direction: column; 
+}
+.feature-card:hover { 
+  transform: translateY(-8px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07); 
+}
+.feature-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.feature-card h3 { margin-top: 0; margin-bottom: 0.5rem; color: var(--dark-text); }
+.feature-card p { flex-grow: 1; line-height: 1.6; color: var(--light-text); }
+
+
+/* How It Works Section */
+.how-it-works-section { 
+  background-color: var(--background-white); /* Make this section white */
+  padding-top: 4rem; 
+  padding-bottom: 4rem; 
+  /* border-top: 1px solid var(--border-color);  Removed */
+  border-bottom: 1px solid var(--border-color);
+  margin-top: 0; /* Remove margin */
+  margin-bottom: 0; /* Remove margin */
+}
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; position: relative; max-width: 1200px; margin-left: auto; margin-right: auto;}
+@media (min-width: 768px) { .steps-grid::before { content: ''; position: absolute; top: 50px; left: 15%; right: 15%; height: 2px; background-image: linear-gradient(to right, #cbd5e1 50%, transparent 50%); background-size: 20px 2px; z-index: 0; } }
+.step-card { 
+  background-color: var(--background-white); 
+  padding: 2.5rem 2rem; 
+  border-radius: 12px; 
+  border: 1px solid var(--border-color); 
+  box-shadow: 0 4px 12px var(--shadow-color); 
+  text-align: center; 
+  position: relative; 
+  z-index: 1; 
+  transition: all 0.3s ease; 
+}
+.step-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07); }
+.step-number { width: 50px; height: 50px; line-height: 50px; border-radius: 50%; border: 1px solid var(--primary-green); color: var(--primary-green); font-size: 1.5rem; font-weight: 700; margin: -4.5rem auto 1.5rem auto; position: relative; z-index: 2; background-color: var(--background-white); }
+.step-icon { color: var(--primary-green); font-size: 2.5rem; margin-bottom: 1rem; }
+.step-content h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--dark-text); }
+.step-content p { color: var(--light-text); line-height: 1.6; }
+
+/* Encyclopedia Section */
+.encyclopedia-section { 
+  background-color: var(--background-white); 
+  border: 1px solid var(--border-color); 
+  border-radius: 12px; 
+  padding: 3rem; 
+  margin: 3rem auto; 
+  max-width: 1200px; 
+  box-shadow: 0 4px 12px var(--shadow-color); 
+}
+.encyclopedia-content p { max-width: 600px; margin: 1rem auto 2rem auto; }
+
+/* CTA Section */
+.cta-section { 
+  background-image: linear-gradient(to right, #10b981, #047857); 
+  color: white; 
+  border-radius: 12px; 
+  padding: 3rem; 
+  margin: 3rem auto; 
+  max-width: 1200px; 
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3); 
+}
+.cta-section h2 { color: white; }
+.cta-section p { color: #d1fae5; max-width: 600px; margin: 1rem auto 2rem auto; }
+.cta-section .cta-button-secondary {
+  background-color: #ffffff; color: var(--secondary-green);
+  border-color: #ffffff; font-weight: 700;
+}
+.cta-section .cta-button-secondary:hover {
+  background-color: #f0fdfa; border-color: #f0fdfa;
+}
