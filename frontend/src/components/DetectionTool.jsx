@@ -1,29 +1,33 @@
 import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./DetectionTool.css";
 
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 // ── Severity color helpers ─────────────────────────────────────────────────────
 const STAGE_COLORS = {
-  0: { bg: "#d1fae5", border: "#10b981", text: "#065f46", badge: "#10b981" }, // healthy green
-  1: { bg: "#fef9c3", border: "#f59e0b", text: "#78350f", badge: "#f59e0b" }, // yellow
-  2: { bg: "#ffedd5", border: "#f97316", text: "#7c2d12", badge: "#f97316" }, // orange
-  3: { bg: "#fee2e2", border: "#ef4444", text: "#7f1d1d", badge: "#ef4444" }, // red
- "-1": { bg: "#f3f4f6", border: "#9ca3af", text: "#374151", badge: "#9ca3af" }, // grey
+  0:  { bg: "#d1fae5", border: "#10b981", text: "#065f46", badge: "#10b981" },
+  1:  { bg: "#fef9c3", border: "#f59e0b", text: "#78350f", badge: "#f59e0b" },
+  2:  { bg: "#ffedd5", border: "#f97316", text: "#7c2d12", badge: "#f97316" },
+  3:  { bg: "#fee2e2", border: "#ef4444", text: "#7f1d1d", badge: "#ef4444" },
+  "-1": { bg: "#f3f4f6", border: "#9ca3af", text: "#374151", badge: "#9ca3af" },
 };
 
 const STAGE_ICONS = { 0: "🌿", 1: "🟡", 2: "🟠", 3: "🔴", "-1": "❓" };
 
 export default function DetectionTool() {
-  const [selectedFile, setSelectedFile]   = useState(null);
-  const [previewUrl, setPreviewUrl]       = useState(null);
-  const [isLoading, setIsLoading]         = useState(false);
-  const [result, setResult]               = useState(null);
-  const [error, setError]                 = useState(null);
-  const [activeTab, setActiveTab]         = useState("organic");
-  const fileInputRef                       = useRef(null);
+  const { t } = useTranslation();
 
-  // ── File handling ────────────────────────────────────────────────────────────
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewUrl,   setPreviewUrl]   = useState(null);
+  const [isLoading,    setIsLoading]    = useState(false);
+  const [result,       setResult]       = useState(null);
+  const [error,        setError]        = useState(null);
+  const [activeTab,    setActiveTab]    = useState("organic");
+  const [showExtra,    setShowExtra]    = useState(null); // 'precautions' | 'risk'
+  const fileInputRef = useRef(null);
+
+  // ── File handling ─────────────────────────────────────────────────────────
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -48,15 +52,17 @@ export default function DetectionTool() {
     setPreviewUrl(null);
     setResult(null);
     setError(null);
+    setShowExtra(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
-  // ── API Call ─────────────────────────────────────────────────────────────────
+  // ── API Call ──────────────────────────────────────────────────────────────
   const handleAnalyze = async () => {
     if (!selectedFile) return;
     setIsLoading(true);
     setError(null);
     setResult(null);
+    setShowExtra(null);
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -66,13 +72,8 @@ export default function DetectionTool() {
       const data = await res.json();
 
       if (!res.ok) {
-        // Handle specific error types from backend
         if (data.error === "not_tomato") {
-          setError({
-            type: "not_tomato",
-            message: data.message,
-            detected: data.detected_plant,
-          });
+          setError({ type: "not_tomato", message: data.message, detected: data.detected_plant });
         } else if (data.error === "not_a_plant") {
           setError({ type: "not_a_plant", message: data.message });
         } else {
@@ -82,28 +83,32 @@ export default function DetectionTool() {
         setResult(data);
         setActiveTab("organic");
       }
-    } catch (err) {
+    } catch {
       setError({ type: "generic", message: "Cannot reach the server. Make sure the backend is running." });
     } finally {
       setIsLoading(false);
     }
   };
 
-  // ── Derived values ────────────────────────────────────────────────────────────
-  const stageNum    = result?.stage?.number ?? -1;
-  const colors      = STAGE_COLORS[stageNum] ?? STAGE_COLORS["-1"];
-  const stageIcon   = STAGE_ICONS[stageNum] ?? "❓";
-  const damageBar   = result?.stage?.damage_pct ?? 0;
+  // ── Derived values ────────────────────────────────────────────────────────
+  const stageNum  = result?.stage?.number ?? -1;
+  const colors    = STAGE_COLORS[stageNum] ?? STAGE_COLORS["-1"];
+  const stageIcon = STAGE_ICONS[stageNum]  ?? "❓";
+  const damageBar = result?.stage?.damage_pct ?? 0;
+
+  // treatment comes from backend as { stage_label, action, organic[], chemical[] }
+  const treatment = result?.treatment ?? {};
 
   return (
     <div className="detection-wrapper">
       <div className="detection-header">
-        <h1>🍅 Tomato Disease Detector</h1>
-        <p>Upload a clear photo of a <strong>tomato leaf</strong> to detect disease, severity, and get treatment advice.</p>
+        <h1>{t("detect.title")}</h1>
+        <p>{t("detect.subtitle")}</p>
       </div>
 
       <div className="detection-main">
-        {/* ── LEFT PANEL: Upload ── */}
+
+        {/* ── LEFT: Upload ─────────────────────────────────────────────────── */}
         <div className="upload-panel">
           <div
             className={`dropzone ${previewUrl ? "has-image" : ""}`}
@@ -116,8 +121,8 @@ export default function DetectionTool() {
             ) : (
               <div className="dropzone-placeholder">
                 <span className="upload-icon">📷</span>
-                <p>Drag & drop a tomato leaf photo</p>
-                <p className="upload-sub">or click to browse</p>
+                <p>{t("detect.dragDrop")}</p>
+                <p className="upload-sub">{t("detect.orClick")}</p>
               </div>
             )}
           </div>
@@ -131,14 +136,13 @@ export default function DetectionTool() {
           />
 
           <div className="upload-actions">
-            {previewUrl && (
+            {previewUrl ? (
               <button className="btn btn-secondary" onClick={handleReset}>
-                🔄 Change Image
+                {t("detect.changeImage")}
               </button>
-            )}
-            {!previewUrl && (
+            ) : (
               <button className="btn btn-secondary" onClick={() => fileInputRef.current?.click()}>
-                📂 Browse Files
+                {t("detect.browseFiles")}
               </button>
             )}
             <button
@@ -147,73 +151,73 @@ export default function DetectionTool() {
               disabled={!selectedFile || isLoading}
             >
               {isLoading ? (
-                <><span className="spinner" /> Analyzing...</>
+                <><span className="spinner" /> {t("detect.analyzing")}</>
               ) : (
-                "🔍 Analyze Leaf"
+                t("detect.analyzeLeaf")
               )}
             </button>
           </div>
 
           <div className="upload-tips">
-            <p>✅ Tips for best results:</p>
+            <p>{t("detect.tips.title")}</p>
             <ul>
-              <li>Use natural daylight</li>
-              <li>Focus clearly on the leaf</li>
-              <li>Show the full leaf surface</li>
-              <li>Tomato leaves only</li>
+              <li>{t("detect.tips.daylight")}</li>
+              <li>{t("detect.tips.focus")}</li>
+              <li>{t("detect.tips.fullLeaf")}</li>
+              <li>{t("detect.tips.tomatoOnly")}</li>
             </ul>
           </div>
         </div>
 
-        {/* ── RIGHT PANEL: Results ── */}
+        {/* ── RIGHT: Results ───────────────────────────────────────────────── */}
         <div className="result-panel">
 
-          {/* Loading state */}
+          {/* Loading */}
           {isLoading && (
             <div className="result-loading">
               <div className="loading-spinner-large" />
-              <p>Analyzing your tomato leaf...</p>
-              <p className="loading-sub">Detecting disease & calculating severity</p>
+              <p>{t("detect.analyzingLeaf")}</p>
+              <p className="loading-sub">{t("detect.detectingDisease")}</p>
             </div>
           )}
 
-          {/* Error state */}
+          {/* Error */}
           {!isLoading && error && (
             <div className="result-error">
               {error.type === "not_tomato" && (
                 <>
                   <div className="error-icon">🚫</div>
-                  <h3>Not a Tomato Plant</h3>
+                  <h3>{t("detect.notTomato")}</h3>
                   <p>{error.message}</p>
-                  <p className="error-hint">Detected: <strong>{error.detected}</strong></p>
-                  <button className="btn btn-secondary" onClick={handleReset}>Try Another Image</button>
+                  <p className="error-hint">{t("detect.detected")}: <strong>{error.detected}</strong></p>
+                  <button className="btn btn-secondary" onClick={handleReset}>{t("detect.tryAnotherImage")}</button>
                 </>
               )}
               {error.type === "not_a_plant" && (
                 <>
                   <div className="error-icon">🌫️</div>
-                  <h3>No Leaf Detected</h3>
+                  <h3>{t("detect.noLeaf")}</h3>
                   <p>{error.message}</p>
-                  <button className="btn btn-secondary" onClick={handleReset}>Try Another Image</button>
+                  <button className="btn btn-secondary" onClick={handleReset}>{t("detect.tryAnotherImage")}</button>
                 </>
               )}
               {error.type === "generic" && (
                 <>
                   <div className="error-icon">⚠️</div>
-                  <h3>Error</h3>
+                  <h3>{t("detect.error")}</h3>
                   <p>{error.message}</p>
-                  <button className="btn btn-secondary" onClick={handleReset}>Try Again</button>
+                  <button className="btn btn-secondary" onClick={handleReset}>{t("detect.tryAgain")}</button>
                 </>
               )}
             </div>
           )}
 
-          {/* Empty state */}
+          {/* Empty */}
           {!isLoading && !error && !result && (
             <div className="result-empty">
               <div className="empty-icon">🍃</div>
-              <h3>Ready to Diagnose</h3>
-              <p>Upload a tomato leaf photo and click <strong>Analyze Leaf</strong> to get started.</p>
+              <h3>{t("detect.readyToDiagnose")}</h3>
+              <p>{t("detect.uploadAndClick")}</p>
             </div>
           )}
 
@@ -227,25 +231,24 @@ export default function DetectionTool() {
                   <span className="result-stage-icon">{stageIcon}</span>
                   <div>
                     <h2 className="result-disease-name" style={{ color: colors.text }}>
-                      {result.is_healthy ? "✅ Healthy Tomato" : result.disease_name}
+                      {result.is_healthy ? t("detect.healthyTomato") : result.disease_name}
                     </h2>
-                    <span className="result-confidence">Confidence: {result.confidence}</span>
+                    <span className="result-confidence">{t("detect.confidence")}: {result.confidence}</span>
                   </div>
                   <span className="result-stage-badge" style={{ background: colors.badge }}>
-                    {result.is_healthy ? "Healthy" : `Stage ${stageNum}`}
+                    {result.is_healthy ? t("detect.healthy") : `${t("detect.stage")} ${stageNum}`}
                   </span>
                 </div>
-
                 {result.description && (
                   <p className="result-description">{result.description}</p>
                 )}
               </div>
 
-              {/* Severity bar (only for diseased) */}
+              {/* Severity bar (diseased only) */}
               {!result.is_healthy && stageNum > 0 && (
                 <div className="severity-card">
                   <div className="severity-header">
-                    <span>📊 Severity Analysis</span>
+                    <span>{t("detect.severityAnalysis")}</span>
                     <span className="severity-label" style={{ color: colors.badge }}>
                       {result.stage.label}
                     </span>
@@ -253,17 +256,12 @@ export default function DetectionTool() {
                   <div className="severity-bar-bg">
                     <div
                       className="severity-bar-fill"
-                      style={{
-                        width: `${Math.min(damageBar, 100)}%`,
-                        background: colors.badge,
-                      }}
+                      style={{ width: `${Math.min(damageBar, 100)}%`, background: colors.badge }}
                     />
                   </div>
                   <div className="severity-footer">
-                    <span>Estimated damage: <strong>{damageBar}%</strong> of leaf area affected</span>
+                    <span>{t("detect.estimatedDamage")}: <strong>{damageBar}%</strong> {t("detect.leafAreaAffected")}</span>
                   </div>
-
-                  {/* Stage indicators */}
                   <div className="stage-indicators">
                     {[1, 2, 3].map((s) => (
                       <div
@@ -271,9 +269,9 @@ export default function DetectionTool() {
                         className={`stage-indicator ${stageNum === s ? "active" : stageNum > s ? "past" : ""}`}
                         style={stageNum === s ? { borderColor: colors.border, background: colors.bg } : {}}
                       >
-                        <span className="stage-num">Stage {s}</span>
+                        <span className="stage-num">{t("detect.stage")} {s}</span>
                         <span className="stage-desc">
-                          {s === 1 ? "Early" : s === 2 ? "Moderate" : "Severe"}
+                          {s === 1 ? t("detect.early") : s === 2 ? t("detect.moderate") : t("detect.severe")}
                         </span>
                       </div>
                     ))}
@@ -281,43 +279,107 @@ export default function DetectionTool() {
                 </div>
               )}
 
-              {/* Treatment section */}
+              {/* Recommended Action */}
+              {treatment.action && (
+                <div className="action-card" style={{ borderColor: colors.border }}>
+                  <h3 className="action-title">{t("detect.recommendedAction")}</h3>
+                  <p className="action-text">{treatment.action}</p>
+                </div>
+              )}
+
+              {/* Treatment tabs */}
               <div className="treatment-card">
-                <h3>💊 Recommended Treatment</h3>
-                <p className="treatment-stage-label">{result.treatment.stage_label}</p>
+                <h3>{t("detect.recommendedTreatment")}</h3>
+                <p className="treatment-stage-label">{treatment.stage_label}</p>
 
                 <div className="treatment-tabs">
                   <button
-                    className={`tab-btn ${activeTab === "organic" ? "active" : ""}`}
+                    className={`tab-btn ${activeTab === "organic" ? "active organic-active" : ""}`}
                     onClick={() => setActiveTab("organic")}
                   >
-                    🌿 Organic
+                    {t("detect.organic")}
                   </button>
                   <button
-                    className={`tab-btn ${activeTab === "chemical" ? "active" : ""}`}
+                    className={`tab-btn ${activeTab === "chemical" ? "active chemical-active" : ""}`}
                     onClick={() => setActiveTab("chemical")}
                   >
-                    🧪 Chemical
+                    {t("detect.chemical")}
                   </button>
                 </div>
 
                 <div className="treatment-content">
                   {activeTab === "organic" && (
                     <div className="treatment-text organic">
-                      {result.treatment.organic}
+                      {Array.isArray(treatment.organic) ? (
+                        <ul className="treatment-list">
+                          {treatment.organic.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p>{treatment.organic}</p>
+                      )}
                     </div>
                   )}
                   {activeTab === "chemical" && (
                     <div className="treatment-text chemical">
-                      {result.treatment.chemical}
+                      {Array.isArray(treatment.chemical) ? (
+                        <ul className="treatment-list">
+                          {treatment.chemical.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p>{treatment.chemical}</p>
+                      )}
                     </div>
                   )}
                 </div>
               </div>
 
+              {/* Precautions */}
+              {result.precautions?.length > 0 && (
+                <div className="extra-card precautions-card">
+                  <button
+                    className="extra-toggle"
+                    onClick={() => setShowExtra(showExtra === "precautions" ? null : "precautions")}
+                  >
+                    <span>{t("detect.precautions")}</span>
+                    <span className="toggle-arrow">{showExtra === "precautions" ? "▲" : "▼"}</span>
+                  </button>
+                  {showExtra === "precautions" && (
+                    <ul className="extra-list">
+                      {result.precautions.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+
+              {/* Risk Factors */}
+              {result.risk_factors?.length > 0 && (
+                <div className="extra-card risk-card">
+                  <button
+                    className="extra-toggle"
+                    onClick={() => setShowExtra(showExtra === "risk" ? null : "risk")}
+                  >
+                    <span>{t("detect.riskFactors")}</span>
+                    <span className="toggle-arrow">{showExtra === "risk" ? "▲" : "▼"}</span>
+                  </button>
+                  {showExtra === "risk" && (
+                    <ul className="extra-list">
+                      {result.risk_factors.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+
               {/* Analyze another */}
               <button className="btn btn-outline full-width" onClick={handleReset}>
-                🔄 Analyze Another Leaf
+                {t("detect.analyzeAnother")}
               </button>
             </div>
           )}
